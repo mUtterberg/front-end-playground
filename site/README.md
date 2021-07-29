@@ -1,7 +1,21 @@
-# README
+# The Site Itself
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Concept Map (for lack of a better term)
+
+- Rails
+  - Standard MVC
+    - `/ideas`
+  - Static pages
+    - `/info`
+    - `/landing`
+- React
+    - `/whiskeys`
+- GraphQL
+    - Nowhere yet, but in progress
+
+## Other
+
+The boilerplate below actually seems useful (to Future Marissa)
 
 Things you may want to cover:
 
