@@ -1,0 +1,94 @@
+// Place all the styles related to the Whiskeys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* Main div */
+
+#main {
+  margin-left: 16%;
+}
+
+#main > h1 {
+  text-align: right;
+}
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 15%;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+
+.sidebar a, button {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  //font-size: 25px;
+  color: #818181;
+  //color: #4d3e65;
+  display: block;
+  transition: 0.3s;
+}
+
+@media screen and (min-width: 801px) {
+  .sidebar a, button {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .sidebar a, button {
+    font-size: 12px;
+  }
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+}
+
+.closebtn:hover {
+  background-color: #444444;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a, button {font-size: 18px;}
+}

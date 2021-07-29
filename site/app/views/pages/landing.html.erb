@@ -1,0 +1,19 @@
+<% content_for :js_pack_tag do %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= render 'shared/unreactive_header' %>
+
+<h1>Future Fancy Landing Page</h1>
+<p>Just some boring links for now.</p>
+<ul>
+  <li>Check out the <a href="/ideas">Ideas</a> app</li>
+  <li>Or try the <a href="/whiskeys">Whiskeys</a> app
+    <ul>
+      <li>If you dare.</li>
+      <li>It may be extremely broken.</li>
+    </ul>
+  </li>
+</ul>
+
+<%= render 'shared/unreactive_footer' %>

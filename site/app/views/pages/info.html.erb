@@ -1,0 +1,10 @@
+<% content_for :js_pack_tag do %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= render 'shared/unreactive_header' %>
+
+<h1>About Me</h1>
+<p>Hi! My name is Marissa.</p>
+
+<%= render 'shared/unreactive_footer' %>
