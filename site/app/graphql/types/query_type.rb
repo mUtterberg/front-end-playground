@@ -11,5 +11,14 @@ module Types
     def distilleries
       Distillery.all
     end
+
+    field :producers,
+          [Types::ProducerType],
+          null: false,
+          description: "Returns a list of producers available"
+
+    def producers
+      Producer.all
+    end
   end
 end

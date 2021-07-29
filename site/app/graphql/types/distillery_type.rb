@@ -11,12 +11,16 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
 
     field :producer, Types::ProducerType, null: true
-    # field :location, Types::LocationType, null: true
 
-    def full_name
-      # `object` references the Distillery instance
-      [object.name, ' (', 'object.producer_id.name', ')'].compact.join('')
-    end
+    # field :full_name, String, null: false
+    #
+    # def full_name
+    #   # `object` references the Distillery instance
+    #   # TODO: Return name with producer in parentheses
+    #   [object.name, ' (', object.producer.name, ')'].compact.join('')
+    # end
+
+    # field :location, Types::LocationType, null: true
   end
 
   # class LocationType < Types::BaseObject
