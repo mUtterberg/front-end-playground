@@ -6,8 +6,9 @@
   - Standard MVC
     - `/ideas`
   - Static pages
-    - `/info`
-    - `/landing`
+    - `/`
+    - `/pages/info`
+    - `/pages/landing`
 - React
     - `/whiskeys`
 - GraphQL

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :ideas
   get '/whiskeys' => 'whiskeys#index'
+  get '/cellar' => 'cellar#index'
 
   root to: redirect('/pages/landing')
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
