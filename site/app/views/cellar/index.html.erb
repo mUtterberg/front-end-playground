@@ -1,5 +1,5 @@
 <% content_for :js_pack_tag do %>
-  <%= javascript_pack_tag 'distilleries' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
 <%= render 'shared/unreactive_header' %>
@@ -8,5 +8,8 @@
   <h1>Cellar#index</h1>
   <p>Find me in app/views/cellar/index.html.erb</p>
 </div>
+
+<!--This js pack tag must run after the root element above is created (because of the js contents)-->
+<%= javascript_pack_tag 'distilleries' %>
 
 <%= render 'shared/unreactive_footer' %>

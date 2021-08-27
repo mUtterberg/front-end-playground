@@ -9,7 +9,8 @@ module Types
           description: "Returns a list of distilleries in the cellar"
 
     def distilleries
-      Distillery.all
+      Distillery.preload(:producer)
+      # Distillery.all
     end
 
     field :producers,

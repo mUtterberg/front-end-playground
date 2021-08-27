@@ -1,10 +1,16 @@
 import React from "react";
 import {Modal, Table} from "reactstrap";
 import AddWhiskeyModal from "./WhiskeyModalAdd";
+// import Distillery from "../../models/distillery.rb"
 
 class WhiskeyTable extends React.Component {
 
     columns = [
+        {
+            title: 'id',
+            dataIndex: 'id',
+            key: 'id'
+        },
         {
             title: 'Brand',
             dataIndex: 'brand',
@@ -36,7 +42,7 @@ class WhiskeyTable extends React.Component {
             key: 'abv'
         },
         {
-            title: '',
+            title: 'Edit/Delete',
             key: 'action'
         }
     ];
@@ -66,7 +72,8 @@ class WhiskeyTable extends React.Component {
                         brand: whiskey.brand,
                         name: whiskey.name,
                         style: whiskey.style,
-                        distiller: whiskey.distiller,
+                        distiller: whiskey.distillery_id,
+                        // distiller: Distillery.where(id: whiskey.distillery_id).name,
                         rating: whiskey.rating,
                         abv: whiskey.abv
                     };
@@ -85,8 +92,19 @@ class WhiskeyTable extends React.Component {
     };
 
     deleteWhiskey = (id) => {
-        const url = 'api/v1/beers/${id}'
-    }
+        const url = `api/v1/whiskeys/${id}`
+        fetch(url, {
+            method: "delete",
+        })
+            .then((data) => {
+                if (data.ok) {
+                    this.reloadWhiskeys();
+                    return data.json();
+                }
+                throw new Error("Network error.");
+            })
+            .catch((err) => message.error("Error: " + err));
+    };
 
     render() {
         return (
@@ -115,13 +133,18 @@ class WhiskeyTable extends React.Component {
                              abv
                          }) => (
                             <tr key={id}>
+                                <td>{id}</td>
                                 <td>{brand}</td>
                                 <td>{name}</td>
                                 <td>{style}</td>
                                 <td>{distiller}</td>
                                 <td>{rating}</td>
                                 <td>{abv}</td>
-                                <ConfirmDelete />
+                                <ConfirmDelete id={id} />
+                                {/*<td>*/}
+                                {/*    <a href={''}>Edit</a>/*/}
+                                {/*    <button onClick={this.deleteWhiskey(id)}>Delete</button>*/}
+                                {/*</td>*/}
                             </tr>
                         )
                     )}
@@ -136,11 +159,18 @@ class WhiskeyTable extends React.Component {
 export default WhiskeyTable;
 
 class ConfirmDelete extends React.Component {
+    constructor(props) {
+        super(props);
+        this.id = props.id;
+    }
     render() {
         return (
             <>
-                <td><a href={'#'}>Edit</a>/<a href={'#'}>Delete</a></td>
+            <td>
+                <a href={''}>Edit</a>/
+                <button>Delete</button>
+            </td>
             </>
         )
     }
-};
+}

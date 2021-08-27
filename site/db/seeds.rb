@@ -8,7 +8,17 @@
 
 heaven_hill = Producer.create!(name: 'Heaven Hill')
 beam_suntory = Producer.create!(name: 'Beam Suntory')
+sazerac = Producer.create!(name: 'Sazerac Co.')
 
+buffalo_trace = Distillery.create!(
+  name: 'Buffalo Trace Distillery',
+  city: 'Frankfort',
+  state: 'Kentucky',
+  country: 'United States',
+  latitude: 38.21689388491328,
+  longitude: -84.87044951994098,
+  producer: sazerac
+)
 hh_bernheim = Distillery.create!(
   name: 'Heaven Hill Bernheim Distillery',
   city: 'Louisville',
@@ -47,6 +57,12 @@ Whiskey.create!(
     },
     {
       brand: 'Basil Hayden', name: '10 Year', style: 'Bourbon', abv: 0.4, rating: 92, distillery: jim_beam
+    },
+    {
+      brand: 'Booker\'s', name: 'Pigskin Batch', style: 'Bourbon', abv: 0.6365, rating: 94, distillery: jim_beam
+    },
+    {
+      brand: 'Eagle Rare', name: '10 Year', style: 'Bourbon', abv: 0.45, rating: 92, distillery: buffalo_trace
     }
   ]
 )
